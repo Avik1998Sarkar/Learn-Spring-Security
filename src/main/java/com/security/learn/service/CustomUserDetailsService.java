@@ -1,4 +1,4 @@
-package com.security.learn;
+package com.security.learn.service;
 
 import com.security.learn.entity.User;
 import com.security.learn.repository.UserRepository;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
 @Component
+// Custom implementation of UserDetailsService to load user-specific data
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;

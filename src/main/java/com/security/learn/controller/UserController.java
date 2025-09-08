@@ -1,6 +1,6 @@
 package com.security.learn.controller;
 
-import com.security.learn.UserService;
+import com.security.learn.service.UserService;
 import com.security.learn.entity.User;
 import com.security.learn.repository.UserRepository;
 import org.springframework.util.ObjectUtils;
@@ -25,13 +25,4 @@ public class UserController {
         return userService.register(user);
     }
 
-    @PostMapping("/login")
-    public String loginAPI(@RequestBody User user) {
-        User userDetails = userRepository.findByUsername(user.getUsername());
-        if (ObjectUtils.isEmpty(userDetails)) {
-            return "Login Failed";
-        } else {
-            return "Login Successful";
-        }
-    }
 }

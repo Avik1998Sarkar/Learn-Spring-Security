@@ -1,4 +1,4 @@
-package com.security.learn;
+package com.security.learn.service;
 
 import com.security.learn.entity.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
+// Custom implementation of UserDetails to integrate with Spring Security
 public class CustomUserDetails implements UserDetails {
 
     private final User user;

@@ -56,14 +56,17 @@ public class WebSecurityConfig {
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        // setting the custom user details service
         authProvider.setUserDetailsService(userDetailsService);
-//        authProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        // authProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        // setting the password encoder as BCrypt
         authProvider.setPasswordEncoder(bCryptPasswordEncoder());
         return authProvider;
     }
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        // using a strength of 14 (default is 10)
         return new BCryptPasswordEncoder(14);
     }
 
